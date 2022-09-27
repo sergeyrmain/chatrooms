@@ -3,7 +3,7 @@ import os
 
 from fastapi import FastAPI
 
-from api import chatroom, users, rooms
+from api import chatroom, users, chats, security
 
 LOG_LEVEL = os.environ.get('LOG_LEVEL', 'INFO').upper()
 
@@ -21,4 +21,5 @@ def register_routers(app: FastAPI) -> None:
 
     chatroom.register_router(app)
     users.register_router(app)
-    rooms.register_router(app)
+    chats.register_router(app)
+    security.register_router(app)

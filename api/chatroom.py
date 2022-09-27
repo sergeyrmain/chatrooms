@@ -30,8 +30,3 @@ async def websocket_endpoint(websocket: WebSocket):
         data = await websocket.receive_text()
         await websocket.send_text(f"Message text was: {data}")
 
-
-
-@router.websocket("/ws/{room_name}/{user_name}")
-async def websocket_endpoint(websocket: WebSocket, room_name: str, user_name: str):
-    pass

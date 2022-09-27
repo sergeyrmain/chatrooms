@@ -42,14 +42,3 @@ async def get_user_by_name(user_name: str, session=Depends(get_mysql_session)):
         raise e
 
 
-def verify_password(plain_password, hashed_password):
-    return hashlib.sha256(plain_password.encode(settings.ENCODER)).hexdigest() == hashed_password
-
-
-async def login_user(user_name, password, session=Depends(get_mysql_session)):
-    user = await get_user_by_name(user_name, session)
-    if not user:
-        return False
-    if not verify_password(password, user.user_password):
-        return False
-    return True

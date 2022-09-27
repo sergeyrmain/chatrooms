@@ -9,6 +9,9 @@ class Settings(BaseSettings):
     MYSQL_DB = Field(env='MYSQL_DB', default='chat')
     LOG_LEVEL: str = Field(env='LOG_LEVEL', default='INFO')
     ENCODER: str = Field(env='ENCODER', default='utf-8')
+    SECRET_KEY: str = Field(env='SECRET_KEY', default='secret')
+    ALGORITHM: str = Field(env='ALGORITHM', default='HS256')
+
 
 
 settings = Settings()

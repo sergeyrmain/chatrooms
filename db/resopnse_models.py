@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Required, Field
 
 
 class UserResponse(BaseModel):
