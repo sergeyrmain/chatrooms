@@ -42,9 +42,3 @@ async def get_user(form_token: str = Depends(oauth2_scheme)):
     print(res)
     return res
 
-
-@router.get('/test')
-async def testing(form_token: str = Depends(get_current_user)):
-
-    return 'hello'
-

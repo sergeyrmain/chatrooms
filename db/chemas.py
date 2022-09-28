@@ -9,3 +9,9 @@ class UserModel(BaseModel):
 class UserPasswordCredentials(BaseModel):
     user_name: str = Field(Required, alias="userName")
     password: str = Field(Required)
+
+
+class Message(BaseModel):
+    message: str = Field(Required)
+    receiver: str = Field(Required)
+    sender: str = Field(Required)

@@ -48,6 +48,6 @@ class Message(Base):
 
 'CREATE TABLE chat.users(id INT AUTO_INCREMENT PRIMARY KEY, user_name VARCHAR(255) NOT NULL UNIQUE, user_password VARCHAR(255) NOT NULL, user_salt VARCHAR(255) NOT NULL);'
 
-'CREATE TABLE chat.chat(id INT AUTO_INCREMENT PRIMARY KEY, user_one INT NOT NULL REFERENCES users(id), user_two INT NOT NULL REFERENCES users(id));'
+'CREATE TABLE chat.chats(id INT AUTO_INCREMENT PRIMARY KEY, user_one INT NOT NULL REFERENCES users(id), user_two INT NOT NULL REFERENCES users(id));'
 
-'CREATE TABLE chat.messages(id INT AUTO_INCREMENT PRIMARY KEY, chat_id INT NOT NULL REFERENCES chat(id), sender INT NOT NULL REFERENCES users(id), receiver INT NOT NULL REFERENCES users(id), message VARCHAR(255) NOT NULL, message_time BIGINT NOT NULL);'
+'CREATE TABLE chat.messages(id INT AUTO_INCREMENT PRIMARY KEY, chat_id INT NOT NULL REFERENCES chats(id), sender INT NOT NULL REFERENCES users(id), receiver INT NOT NULL REFERENCES users(id), message VARCHAR(255) NOT NULL, message_time BIGINT NOT NULL);'
