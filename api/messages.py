@@ -36,9 +36,8 @@ async def get_messages(chat_id: int = Query(Required, alias='chatId'), session=D
         return JSONResponse(content={'detail': e}, status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-
 @router.post('/messages', tags=['messages'], status_code=status.HTTP_201_CREATED)
-async def create_message(message: Message=Query(Required), session=Depends(get_mysql_session),
+async def create_message(message: Message = Query(Required), session=Depends(get_mysql_session),
                          form_token: str = Depends(oauth2_scheme)):
     try:
         res = await create_new_message(message, session)
